@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PeakMind Personal academic coach</title>
+<title>PeakMind — AI Academic Coach</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -171,7 +171,7 @@ footer strong{color:var(--text-muted)}
 </nav>
 
 <section class="hero reveal">
-  <div class="hero-badge">Mentor you never had</div>
+  <div class="hero-badge">AI-powered coaching</div>
   <h1 class="hero-title">Your personal coach.<br><em>Built for students who mean it.</em></h1>
   <p class="hero-sub">Answer 8 questions about your life. Get a brutally honest, science-backed plan in under 60 seconds.</p>
   <div class="hero-actions">
@@ -197,7 +197,7 @@ footer strong{color:var(--text-muted)}
       <div class="step-card">
         <div class="step-num">01</div>
         <div class="step-title">Tell us about your situation</div>
-        <div class="step-desc">Fill in your age, exam goals, study hours, current problems, and biggest distractions. No judgment but the truth.</div>
+        <div class="step-desc">Fill in your age, exam goals, study hours, current problems, and biggest distractions. No judgment — just the truth.</div>
       </div>
       <div class="step-card">
         <div class="step-num">02</div>
@@ -207,7 +207,7 @@ footer strong{color:var(--text-muted)}
       <div class="step-card">
         <div class="step-num">03</div>
         <div class="step-title">Get your complete playbook</div>
-        <div class="step-desc">Receive an 11-section personalized plan: diagnosis, weekly schedule, daily routine, distraction systems, book list, and more</div>
+        <div class="step-desc">Receive an 11-section personalized plan: diagnosis, weekly schedule, daily routine, distraction systems, book list, and more.</div>
       </div>
     </div>
   </div>
@@ -415,14 +415,9 @@ Return ONLY valid JSON, no markdown, no backticks. Structure:
 Each value should be 150-400 words of rich, specific, actionable coaching text. Use newlines for readability. For 'resources' include 3 books with author and why, 2 podcasts, and 3 practical methods. Make every section feel written specifically for THIS student.`;
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages',{
+    const res = await fetch('/.netlify/functions/generate',{
       method:'POST',
-      headers: {
-  'Content-Type': 'application/json',
-  'x-api-key': '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',
-  'anthropic-version': '2023-06-01',
-  'anthropic-dangerous-direct-browser-access': 'true'
-},
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         model:'claude-sonnet-4-20250514',
         max_tokens:4000,
